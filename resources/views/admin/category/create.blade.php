@@ -55,7 +55,7 @@
                                             </select>	
 										</div>
 									</div>	
-								<form action="" method="post" typ>
+								<form action="" method="post" >
 									<div class="image">
 										 <Label>Image</Label>		
 									<input type="file" name="image" id="" class="form-control  @error('image') is-invalid @enderror" >
