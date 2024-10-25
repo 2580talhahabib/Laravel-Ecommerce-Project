@@ -20,6 +20,7 @@ Route::post('admin/loginAuth', [AdminLoginController::class, 'loginAuth'])->name
 Route::middleware([IsAdmin::class])->group(function () {
     Route::get('admin/dashboard', [HomeController::class, 'dashboard'])->name('admin.dashboard');
     // CategoryController
+    Route::get('admin/category/index', [CategoryController::class, 'index'])->name('category.index');
     Route::get('admin/category/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('admin/category/store', [CategoryController::class, 'store'])->name('category.store');
 

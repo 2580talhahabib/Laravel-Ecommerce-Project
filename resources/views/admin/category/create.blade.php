@@ -27,21 +27,23 @@
 									<div class="col-md-6">
 										<div class="mb-3">
 											<label for="name">Name</label>
-											<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name">
-										</div>
-										@error('name')
+											<input type="text" value="{{old('name')}}" name="name"  class="form-control @error('name') is-invalid @enderror" placeholder="Name">
+												@error('name')
 										<div class="invalid-feedback">{{$message}}</div>
 										@enderror
+										</div>
+									
 										
 									</div>
 									<div class="col-md-6">
 									<div class="mb-3">
 											<label for="name">Slug</label>
-											<input type="text" name="slug" id="name" class="form-control @error('slug') is-invalid @enderror" placeholder="Slug"  >
-										</div>
-										@error('slug')
+											<input type="text" value="{{old('slug')}}" name="slug"  class="form-control @error('slug') is-invalid @enderror" placeholder="Slug"  >
+												@error('slug')
 										<div class="invalid-feedback">{{$message}}</div>
 										@enderror
+										</div>
+									
 										
 									</div>		
                                     <div class="col-md-6">
@@ -52,7 +54,16 @@
                                                 <option value="0">Block</option>
                                             </select>	
 										</div>
-									</div>							
+									</div>	
+								<form action="" method="post" typ>
+									<div class="image">
+										 <Label>Image</Label>		
+									<input type="file" name="image" id="" class="form-control  @error('image') is-invalid @enderror" >
+										@error('image')
+										<div class="invalid-feedback">{{$message}}</div>
+										@enderror			
+								</div> 	
+								</form>	
 								</div>
 							</div>							
 						</div>
