@@ -24,7 +24,7 @@ Route::middleware([IsAdmin::class])->group(function () {
     Route::get('admin/category/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('admin/category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::get('admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
-    Route::get('admin/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::put('admin/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 
 });
 
