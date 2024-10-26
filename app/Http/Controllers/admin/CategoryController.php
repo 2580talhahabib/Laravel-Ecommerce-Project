@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
@@ -36,7 +37,7 @@ class CategoryController extends Controller
         $validator = Validator::make($req->all(), [
             'name' => 'required',
             'slug' => 'required',
-            'image'=> 'required|image|mimes:png,jpg,jpeg',
+            'image'=> 'required|image',
         ]);
 
         if ($validator->passes()) {
@@ -47,24 +48,37 @@ class CategoryController extends Controller
             }
             if($req->hasFile('image')){
                 $image=$req->file('image');
-                dd($image);
+              
+                $ext=$image->getClientOriginalExtension();
+                $orignalpath=time().'.'.$ext;
+                $image->move(public_path(), $orignalpath);
+
+
+              
             }
 
-            Category::create([
+            $data=Category::create([
                 'name' => $req->name,
                 'slug' => strtolower(str_replace(' ', '-', $req->slug)),
                 'status' => $req->status,
-                'image'=>$req->image
+                'image'=>$orignalpath
             ]);
-
+dd($data);
             return redirect()->route('category.index')->with('success','Your Category created Successfully');
         } else {
             return redirect()->route('category.create')->withErrors($validator)->withInput();
         }
     }
 
-    public function edit()
+    public function edit(string $id)
     {
-        
+        $category=Category::find($id)->get();
+     return view('admin.category.update',compact('category'));
+    }
+    public function update() {
+ 
+    }
+    public function delete(){
+
     }
 }

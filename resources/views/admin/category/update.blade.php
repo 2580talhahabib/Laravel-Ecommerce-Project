@@ -6,7 +6,7 @@
 					<div class="container-fluid my-2">
 						<div class="row mb-2">
 							<div class="col-sm-6">
-								<h1>Create Category</h1>
+								<h1>Update Category</h1>
 							</div>
 							<div class="col-sm-6 text-right">
 								<a href="categories.html" class="btn btn-primary">Back</a>
@@ -57,7 +57,7 @@
 									</div>	
 									<div class="image">
 										 <Label>Image</Label>		
-									<input type="file" name="image" id="" class="form-control  @error('image') is-invalid @enderror" >
+									<input type="file" value="{{old('image')}}" name="image" id="" class="form-control  @error('image') is-invalid @enderror" >
 										@error('image')
 										<div class="invalid-feedback">{{$message}}</div>
 										@enderror			
@@ -66,7 +66,7 @@
 							</div>							
 						</div>
 						<div class="pb-5 pt-3">
-							<button type="submit" class="btn btn-primary">Create</button>
+							<button type="submit" class="btn btn-primary">Update</button>
 							<a href="brands.html" class="btn btn-outline-dark ml-3">Cancel</a>
 						</div>
 						</form>
